@@ -1,0 +1,46 @@
+# Pascal's Triangle Element Calculator
+
+This Python function calculates a specific element in Pascal's Triangle given its row and column numbers.
+
+## Function: pascalElement
+
+```python
+def pascalElement(r, c):
+    r = r - 1
+    c = c - 1
+    res = 1
+    for i in range(0, c):
+        res = (res * (r - i)) / (i + 1)
+    return res
+```
+
+### Description
+
+The `pascalElement` function efficiently computes the value of an element in Pascal's Triangle without generating the entire triangle. It uses a mathematical formula to directly calculate the desired element.
+
+### Parameters
+
+- `r` (int): The row number (1-indexed)
+- `c` (int): The column number (1-indexed)
+
+### Returns
+
+- (int): The value of the element at the specified position in Pascal's Triangle
+
+### How It Works
+
+1. Adjust row and column indices to 0-based indexing.
+2. Initialize the result to 1 (first element of any row).
+3. Use a loop to calculate the element using the formula: C(n,k) = C(n,k-1) * (n-k+1) / k
+4. Return the calculated result.
+
+### Example Usage
+
+```python
+print(pascalElement(5, 3))  # Output: 6
+print(pascalElement(7, 4))  # Output: 35
+```
+
+### Note
+
+This function assumes valid input (row number >= column number). It doesn't include error handling for invalid inputs.
